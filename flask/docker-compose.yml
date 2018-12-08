@@ -1,6 +1,5 @@
-version: '2'
+version: "2"
 services:
-
   www:
     build: www/.
     ports:
@@ -13,6 +12,7 @@ services:
   db:
     build: db/.
     volumes:
-      - /var/lib/mysql
+      - /var/lib/mysql:/var/lib/mysql
     environment:
-       MYSQL_ROOT_PASSWORD: supersecure
+      MYSQL_ROOT_PASSWORD: supersecure
+    restart: always

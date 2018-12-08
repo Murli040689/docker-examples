@@ -14,6 +14,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
+
 @app.route("/")
 def test():
     mysql_result = False
@@ -32,6 +33,7 @@ def test():
 
     # Return the page with the result.
     return render_template('index.html', result=result)
+
 
 if __name__ == "__main__":
     app.run(host="172.31.20.46", port=80)
