@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 # Configure MySQL connection.
 db = SQLAlchemy()
-db_uri = 'mysql://root:supersecure@db/information_schema'
+db_uri = 'mysql://root:supersecure@db/mysql'
 app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
@@ -19,9 +19,9 @@ db.init_app(app)
 def test():
     mysql_result = False
     # TODO REMOVE FOLLOWING LINE AFTER TESTING COMPLETE.
-    db.session.query("1").from_statement("SELECT 1").all()
+    db.session.query("1").from_statement("SELECT * from stocks").all()
     try:
-        if db.session.query("1").from_statement("SELECT 1").all():
+        if db.session.query("1").from_statement("SELECT * from stocks").all():
             mysql_result = True
     except:
         pass
