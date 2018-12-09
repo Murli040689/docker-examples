@@ -10,4 +10,4 @@ WORKDIR /opt/www
 RUN pip install -r requirements.txt
 
 EXPOSE 80
-CMD python index.py
+CMD python app.py
